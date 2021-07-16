@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,18 +10,34 @@ import {
 import GenCompHeader from "./GenCompHeader";
 import GenCompNavbar from "./GenCompNavbar";
 import NestedRoutesIndex from "../NestedRoutes/NestedRoutesIndex";
+import { DataContext } from "../Store/Provide";
+import axios from "axios";
+import { PDFViewer } from "@react-pdf/renderer";
+import PdfIndex from "../PdfComp/PdfIndex";
 
 function GeneratorPage() {
   let { path, url } = useRouteMatch();
+  const [state, dispatch] = useContext(DataContext);
+ 
+
   return (
-    <div className="grid grid-cols-3 grid-cols-custom">
+    <div className="grid  grid-cols-custom">
       <GenCompHeader />
       <GenCompNavbar />
       <div className="bg-yellow-200 h-screen overflow-y-scroll">
         <NestedRoutesIndex />
       </div>
-      <div className="bg-blue-500">Pdf Preview Scetion</div>
-      <div className="col-span-3 bg-green-400">Bottom section</div>
+      
+      <div className="col-span-3 bg-green-400">
+        <div className="flex m-4">
+          <button className="bg-blue-500 text-white p-2" type="submit">
+            Submit
+          </button>
+          <button className="bg-yellow-500 text-white p-2 mx-2" type="submit">
+            Download
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

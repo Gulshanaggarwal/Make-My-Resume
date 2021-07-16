@@ -1,26 +1,52 @@
-
-import { useReducer,createContext } from "react";
+import { useReducer, createContext } from "react";
 
 export const DataContext = createContext();
-const initialState = {
-  details: {
-    personal:[],
-    education:[],
+
+
+
+
+let initialState = {
+  details:{
+    personal: {
+      fullname: "",
+      email: "",
+      phone: "",
+      address: "",
+      personal_website: "",
+      linkedin_url: "",
+    },
+    education: [
+      {
+        school_name: "",
+        school_city: "",
+        degree: "",
+        major: "",
+        gpa: "",
+        session_start: "",
+        session_end: "",
+      },
+    ],
   }
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "type_personal":
+    case "handleChange":
       return {
-        details:[],
+        details: {
+          personal: action.payload,
+          education: state.details.education,
+        },
       };
-      case "type_education":
-        return{
-          details
-        }
-      default:
-          throw new Error();
+    case "handlleEducation":
+      return {
+        details: {
+          personal: state.details.personal,
+          education: action.payload,
+        },
+      };
+    default:
+      throw new Error();
   }
 };
 
