@@ -2,171 +2,145 @@ import React, { useState, useContext } from "react";
 import { DataContext } from "../Store/Provide";
 function Education() {
   const [state, dispatch] = useContext(DataContext);
-  console.log("edu", state);
+  const { education } = state.details;
 
-  const [education, setEducation] = useState([
-    {
+  function reusableDispatchFunction(values) {
+    dispatch({
+      type: "handleEducation",
+      payload: values,
+    });
+  }
+
+  // function handle change
+
+  function handleChange(event, index) {
+    const values = [...education];
+    const { name, value } = event.target;
+
+    values[index][name] = value;
+
+    reusableDispatchFunction(values);
+  }
+
+  // function handle Add
+
+  function handleAdd() {
+    const newData = {
       school_name: "",
       school_city: "",
       degree: "",
       major: "",
-      gpa: "",
       session_start: "",
       session_end: "",
-    },
-  ]);
+    };
+    const values = [...education, newData];
 
-  function handleEducation(event, index) {
-    const values = [...education];
-    values[index][event.target.name] = event.target.value;
-
-    dispatch({
-      type: "handlleEducation",
-      payload: values,
-    });
-    setEducation(values);
-  }
-  function handleAdd() {
-    dispatch({
-      type: "handlleEducation",
-      payload: [
-        ...education,
-        {
-          school_name: "",
-          school_city: "",
-          degree: "",
-          major: "",
-          gpa: "",
-          session_start: "",
-          session_end: "",
-        },
-      ],
-    });
-
-
-    setEducation([
-      ...education,
-      {
-        school_name: "",
-        school_city: "",
-        degree: "",
-        major: "",
-        gpa: "",
-        session_start: "",
-        session_end: "",
-      },
-    ]);
+    reusableDispatchFunction(values);
   }
 
-  function handleRemove(event,index) {
-    const values = [...education];
-    if (values.length > 1) {
-      values.splice(index, 1);
-      dispatch({
-        type: "handlleEducation",
-        payload: values,
-      });
-      setEducation(values);
+  // function handleRemove
+
+  function handleRemove() {
+    if (education.length > 1) {
+      const values = [...education];
+      values.splice(education.length - 1, 1);
+      reusableDispatchFunction(values);
     } else {
-      alert("cannot delete");
+      alert("can't remove");
     }
   }
+
   return (
-    <div className="h-full">
-      <h2 className="mx-2 my-8">Education History</h2>
+    <div className="w-3/4 mx-auto">
+      <h2 className="font-extrabold text-2xl my-2">Education History</h2>
       <form>
-        {state.details.education.map((ele, index) => {
+        {education.map((ele, index) => {
           return (
             <div key={index}>
-              <div className="flex flex-col">
-                <label>School / College</label>
+              <div className="flex flex-col w-2/3 my-2">
+                <label className="my-2 font-medium">School / College</label>
                 <input
                   type="text"
+                  className="p-2"
                   placeholder="Stanford University"
                   name="school_name"
                   value={ele.school_name}
-                  onChange={(event) => handleEducation(event, index)}
+                  autoFocus
+                  onChange={(event) => handleChange(event, index)}
                 />
               </div>
-              <div className="flex flex-col">
-                <label>City</label>
+              <div className="flex flex-col w-2/3 my-2">
+                <label className="my-2 font-medium">City</label>
                 <input
                   type="text"
+                  className="p-2"
                   placeholder="Newyork"
                   name="school_city"
                   value={ele.school_city}
-                  onChange={(event) => handleEducation(event, index)}
+                  onChange={(event) => handleChange(event, index)}
                 />
               </div>
-              <div className="flex flex-col">
-                <label>Degree</label>
+              <div className="flex flex-col w-2/3 my-2">
+                <label className="my-2 font-medium">Degree</label>
                 <input
                   type="text"
+                  className="p-2"
                   placeholder="B.tech"
                   name="degree"
                   value={ele.degree}
-                  onChange={(event) => handleEducation(event, index)}
+                  onChange={(event) => handleChange(event, index)}
                 />
               </div>
-              <div className="flex flex-col">
-                <label>Major</label>
+              <div className="flex flex-col w-2/3 my-2">
+                <label className="my-2 font-medium">Major</label>
                 <input
                   type="text"
+                  className="p-2"
                   placeholder="Computer Science"
                   name="major"
                   value={ele.major}
-                  onChange={(event) => handleEducation(event, index)}
+                  onChange={(event) => handleChange(event, index)}
                 />
               </div>
-              <div className="flex flex-col">
-                <label>GPA</label>
-                <input
-                  type="text"
-                  placeholder="8.0"
-                  name="gpa"
-                  value={ele.gpa}
-                  onChange={(event) => handleEducation(event, index)}
-                />
-              </div>
-              <div className="flex flex-col">
-                <label>Session Start</label>
+              <div className="flex flex-col w-2/3 my-2">
+                <label className="my-2 font-medium">Session Start</label>
                 <input
                   type="date"
+                  className="p-2"
                   placeholder="Start Date"
                   name="session_start"
                   value={ele.session_start}
-                  onChange={(event) => handleEducation(event, index)}
+                  onChange={(event) => handleChange(event, index)}
                 />
               </div>
-              <div className="flex flex-col">
-                <label>Session End</label>
+              <div className="flex flex-col w-2/3 my-2">
+                <label className="my-2 font-medium">Session End</label>
                 <input
                   type="date"
+                  className="p-2"
                   placeholder="End Date"
                   name="session_end"
                   value={ele.session_end}
-                  onChange={(event) => handleEducation(event, index)}
+                  onChange={(event) => handleChange(event, index)}
                 />
-              </div>
-              <div className="flex flex-row justify-around my-2">
-                <button
-                  type="button"
-                  className="bg-green-500 border-2 border-black px-4 py-2 text-white"
-                  onClick={handleAdd}
-                >
-                  Add
-                </button>
-                <button
-                  type="button"
-                  className="bg-red-700 border-2 border-black px-4 py-2 text-white"
-                  onClick={(event)=>handleRemove(event,index)}
-                >
-                  Remove
-                </button>
               </div>
             </div>
           );
         })}
+        <div className="my-4">
+          <button
+            className="p-2 bg-green-500 font-semibold"
+            onClick={handleAdd}
+          >
+            Add Job
+          </button>
+          <button
+            className="p-2 bg-red-500 mx-4 font-semibold"
+            onClick={handleRemove}
+          >
+            Remove Job
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -3,85 +3,88 @@ import { DataContext } from "../Store/Provide";
 
 function Personal() {
   const [state, dispatch] = useContext(DataContext);
-  console.log(state);
+  const {personal}=state.details;
 
-  const [personal, setPersonal] = useState({
-    fullname: "",
-    email: "",
-    phone: "",
-    address: "",
-    personal_website: "",
-    linkedin_url: "",
-  });
+  
 
   function handleChange(event) {
     const { name, value } = event.target;
-    setPersonal({ ...personal, [name]: value });
+    const values={...personal};
+    values[name]=value;
+
     dispatch({
-      type:'handleChange',
-      payload:{ ...personal, [name]: value }
+      type:"handlePersonal",
+      payload:values
     })
+    
 
   }
   return (
-    <div>
-      <h2>Personal Info</h2>
+    <div className="w-3/4 mx-auto">
+      <h2 className="font-extrabold text-2xl my-2">Personal Info</h2>
       <form>
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <label>Full Name</label>
+        <div>
+          <div className="flex flex-col w-2/3 my-2">
+            <label className="my-2 font-medium">Full Name</label>
             <input
               type="text"
+              className="p-2"
               placeholder="Jane Doe"
               name="fullname"
               value={state.details.personal.fullname}
+              autoFocus
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col">
-            <label>Email</label>
+          <div className="flex flex-col w-2/3 my-2">
+            <label className="my-2 font-medium">Email</label>
             <input
               type="email"
+              className="p-2"
               placeholder="xyz@gmail.com"
               name="email"
               value={state.details.personal.email}
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col">
-            <label>Phone</label>
+          <div className="flex flex-col w-2/3 my-2">
+            <label className="my-2 font-medium">Phone</label>
             <input
               type="tel"
+              className="p-2"
               placeholder="123456789"
               name="phone"
               value={state.details.personal.phone}
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col">
-            <label>Address</label>
+          <div className="flex flex-col w-2/3 my-2">
+            <label className="my-2 font-medium">Address</label>
             <input
               type="text"
+              className="p-2"
               placeholder="California US"
               name="address"
               value={state.details.personal.address}
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col">
-            <label>Website Link</label>
+          <div className="flex flex-col w-2/3 my-2">
+            <label className="my-2 font-medium">Website Link</label>
             <input
               type="url"
+              className="p-2"
               placeholder="https://example.com"
               name="personal_website"
               value={state.details.personal.personal_website}
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col">
-            <label>Linkedin</label>
+          <div className="flex flex-col w-2/3 my-2">
+            <label className="my-2 font-medium">Linkedin</label>
             <input
               type="url"
+              className="p-2"
               placeholder="https://Linkedin.com"
               name="linkedin_url"
               value={state.details.personal.linkedin_url}

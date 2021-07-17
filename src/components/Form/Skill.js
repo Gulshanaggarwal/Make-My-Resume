@@ -1,40 +1,46 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { DataContext } from "../Store/Provide";
 
 function Skill() {
-  const [skill, setSkill] = useState([
-    {
-      skillName: "",
-    },
-  ]);
+  const [state, dispatch] = useContext(DataContext);
+  const {skill}=state.details;
+
+  function reusableDispatchFunction(values) {
+    dispatch({
+      type: "handleSkill",
+      payload: values,
+    });
+  }
 
   function handleChange(event,index) {
+    const { name, value } = event.target;
+
     const values=[...skill];
-    
-
-    values[index][event.target.name]=event.target.value;
-    setSkill(values);
-
-    
+    values[index][name] = value;
+    reusableDispatchFunction(values);
   }
 
   function handleAdd() {
-    setSkill([...skill,{
+    const newData = {
       skillName: "",
-    }])
+    };
+
+    const values = [...skill, newData];
+
+    reusableDispatchFunction(values);
   }
 
   function handleRemove() {
-    if(skill.length>1){
-       const values=[...skill];
-       values.splice(values.length-1,1);
-      setSkill(values);
-    }
-    else{
-      alert("can't remove");
-    }
 
+    if (skill.length > 1) {
+      const values = [...skill];
+      values.splice(skill.length - 1, 1);
+
+      reusableDispatchFunction(values);
+    } else {
+      alert("Invalid Operation!");
+    }
   }
-  console.log(skill);
 
   return (
     <div className="w-3/4 mx-auto">
@@ -51,7 +57,7 @@ function Skill() {
                 value={ele.skillName}
                 className="p-2"
                 autoFocus
-                onChange={(event)=>handleChange(event,index)}
+                onChange={(event) => handleChange(event,index)}
               />
             </div>
           </div>
