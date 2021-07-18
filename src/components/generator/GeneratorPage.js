@@ -24,7 +24,7 @@ function GeneratorPage() {
     <div className="grid  grid-cols-custom">
       <GenCompHeader />
       <GenCompNavbar />
-      <div className="bg-yellow-200 h-screen overflow-y-scroll">
+      <div className="bg-yellow-200 h-full">
         <NestedRoutesIndex />
       </div>
       

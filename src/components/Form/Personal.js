@@ -30,8 +30,8 @@ function Personal() {
               type="text"
               className="p-2"
               placeholder="Jane Doe"
-              name="fullname"
-              value={state.details.personal.fullname}
+              name="fullName"
+              value={state.details.personal.fullName}
               autoFocus
               onChange={handleChange}
             />
@@ -70,24 +70,13 @@ function Personal() {
             />
           </div>
           <div className="flex flex-col w-2/3 my-2">
-            <label className="my-2 font-medium">Website Link</label>
-            <input
-              type="url"
-              className="p-2"
-              placeholder="https://example.com"
-              name="personal_website"
-              value={state.details.personal.personal_website}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex flex-col w-2/3 my-2">
             <label className="my-2 font-medium">Linkedin</label>
             <input
               type="url"
               className="p-2"
               placeholder="https://Linkedin.com"
-              name="linkedin_url"
-              value={state.details.personal.linkedin_url}
+              name="linkedinUrl"
+              value={state.details.personal.linkedinUrl}
               onChange={handleChange}
             />
           </div>

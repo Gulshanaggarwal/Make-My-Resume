@@ -4,21 +4,20 @@ export const DataContext = createContext();
 
 let initialData = {
   personal: {
-    fullname: "",
+    fullName: "",
     email: "",
     phone: "",
     address: "",
-    personal_website: "",
-    linkedin_url: "",
+    linkedinUrl: "",
   },
   education: [
     {
-      school_name: "",
-      school_city: "",
+      schoolName: "",
+      schoolCity: "",
       degree: "",
       major: "",
-      session_start: "",
-      session_end: "",
+      sessionStart: "",
+      sessionEnd: "",
     },
   ],
   experience: [

@@ -26,12 +26,12 @@ function Education() {
 
   function handleAdd() {
     const newData = {
-      school_name: "",
-      school_city: "",
+      schoolName: "",
+      schoolCity: "",
       degree: "",
       major: "",
-      session_start: "",
-      session_end: "",
+      sessionStart: "",
+      sessionEnd: "",
     };
     const values = [...education, newData];
 
@@ -63,8 +63,8 @@ function Education() {
                   type="text"
                   className="p-2"
                   placeholder="Stanford University"
-                  name="school_name"
-                  value={ele.school_name}
+                  name="schoolName"
+                  value={ele.schoolName}
                   autoFocus
                   onChange={(event) => handleChange(event, index)}
                 />
@@ -75,8 +75,8 @@ function Education() {
                   type="text"
                   className="p-2"
                   placeholder="Newyork"
-                  name="school_city"
-                  value={ele.school_city}
+                  name="schoolCity"
+                  value={ele.schoolCity}
                   onChange={(event) => handleChange(event, index)}
                 />
               </div>
@@ -105,22 +105,22 @@ function Education() {
               <div className="flex flex-col w-2/3 my-2">
                 <label className="my-2 font-medium">Session Start</label>
                 <input
-                  type="date"
+                  type="text"
                   className="p-2"
-                  placeholder="Start Date"
-                  name="session_start"
-                  value={ele.session_start}
+                  placeholder="July 2019"
+                  name="sessionStart"
+                  value={ele.sessionStart}
                   onChange={(event) => handleChange(event, index)}
                 />
               </div>
               <div className="flex flex-col w-2/3 my-2">
                 <label className="my-2 font-medium">Session End</label>
                 <input
-                  type="date"
+                  type="text"
                   className="p-2"
-                  placeholder="End Date"
-                  name="session_end"
-                  value={ele.session_end}
+                  placeholder="April 2021"
+                  name="sessionEnd"
+                  value={ele.sessionEnd}
                   onChange={(event) => handleChange(event, index)}
                 />
               </div>
