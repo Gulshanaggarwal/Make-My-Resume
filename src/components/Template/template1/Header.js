@@ -13,20 +13,20 @@ import { FaEnvelope, FaMobileAlt, FaLink } from "react-icons/fa";
 
 const styles = StyleSheet.create({
   container: {
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'center'
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
   },
   subContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: "25px",
-    width:"85%",
+    width: "85%",
   },
   fullnameContainer: {
     fontSize: "22px",
-    fontWeight:'heavy'
+    fontWeight: "heavy",
   },
   addressContainer: {
     margin: "0 3px",
@@ -41,32 +41,31 @@ const styles = StyleSheet.create({
 });
 
 function Template1Header(props) {
-  const {fullname,email,phone,linkedin_url}=props.data.personal;
- 
-  
+  const { fullName, email, phone, linkedinUrl,address } = props.data.personal;
+
   return (
     <View style={styles.container}>
       <View style={styles.subContainer}>
         <View style={styles.fullnameContainer}>
-          <Text style={styles.fullname}>{fullname}</Text>
+          <Text style={styles.fullname}>{fullName}</Text>
         </View>
         <View style={styles.addressContainer}>
           <View style={styles.linkContainer}>
-            <Link href="">{phone}</Link>
+            <FaLink />
+            <Text>{address}</Text>
+          </View>
+          <View style={styles.linkContainer}>
+            <Link href={`tel:${phone}`}>{phone}</Link>
           </View>
           <View style={styles.linkContainer}>
             <FaEnvelope style={styles.icon} />
-            <Link href="">{email}</Link>
+            <Link href={`mailto:${email}`}>{email}</Link>
           </View>
 
           <View style={styles.linkContainer}>
             <FaLink />
-            <Link href="">{linkedin_url}</Link>
-          </View>
-          <View style={styles.linkContainer}>
-            <FaLink />
-            <Link href="">
-              https://www.linkedin.com/in/gulshan-aggarwal-64b4121a3
+            <Link href={linkedinUrl}>
+              {linkedinUrl}
             </Link>
           </View>
         </View>

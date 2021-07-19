@@ -39,13 +39,14 @@ let initialData = {
     {
       awardName: "",
       awardDescription: "",
+      awardIssuer:"",
       awardIssueDate: "",
     },
   ],
   project:[
     {
       projectName:"",
-      projectDescription:"",
+      projectDescription:""
 
     }
   ]

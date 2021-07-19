@@ -3,8 +3,7 @@ import { useContext } from "react/cjs/react.development";
 import { DataContext } from "../Store/Provide";
 
 function Project() {
-
-  const [state,dispatch]=useContext(DataContext);
+  const [state, dispatch] = useContext(DataContext);
 
   const { project } = state.details;
 
@@ -26,9 +25,8 @@ function Project() {
 
   function handleAdd() {
     const newData = {
-      awardName: "",
-      awardDescription: "",
-      awardIssueDate: "",
+      projectName: "",
+      projectDescription: "",
     };
     const values = [...project, newData];
     reusableDispatchFunction(values);
@@ -46,31 +44,43 @@ function Project() {
   return (
     <div className="w-3/4 mx-auto">
       <h2 className="font-extrabold text-2xl my-2">Projects</h2>
-      {project.map((ele,index)=>{
-        return(
-          <div>
-        <div className="flex flex-col w-2/3 my-2">
-          <label className="my-2 font-medium">Project Name</label>
-          <input type="text" name="projectName" value={ele.projectName} placeholder="Chat App" className="p-2" autoFocus onChange={(event)=>handleChange(event,index)} />
-        </div>
-        <div className="flex flex-col w-2/3 my-2">
-          <label className="my-2 font-medium">Project Description</label>
-          <input
-            type="text"
-            name="projectDescription"
-            value={ele.projectDescription}
-            placeholder="Description"
-            className="p-2"
-            onChange={(event)=>handleChange(event,index)}
-
-          />
-        </div>
-      </div>
-        )
+      {project.map((ele, index) => {
+        return (
+          <div key={index}>
+            <div className="flex flex-col w-2/3 my-2">
+              <label className="my-2 font-medium">Project Name</label>
+              <input
+                type="text"
+                name="projectName"
+                value={ele.projectName}
+                placeholder="Chat App"
+                className="p-2"
+                autoFocus
+                onChange={(event) => handleChange(event, index)}
+              />
+            </div>
+            <div className="flex flex-col w-2/3 my-2">
+              <label className="my-2 font-medium">Project Description</label>
+              <input
+                type="text"
+                name="projectDescription"
+                value={ele.projectDescription}
+                placeholder="Description"
+                className="p-2"
+                onChange={(event) => handleChange(event, index)}
+              />
+            </div>
+          </div>
+        );
       })}
       <div className="my-4">
-        <button className="p-2 bg-green-500 font-semibold" onClick={handleAdd}>Add Project</button>
-        <button className="p-2 bg-red-500 mx-4 font-semibold" onClick={handleRemove}>
+        <button className="p-2 bg-green-500 font-semibold" onClick={handleAdd}>
+          Add Project
+        </button>
+        <button
+          className="p-2 bg-red-500 mx-4 font-semibold"
+          onClick={handleRemove}
+        >
           Remove Project
         </button>
       </div>

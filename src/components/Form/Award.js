@@ -27,6 +27,7 @@ function Award() {
     const newData = {
       awardName: "",
       awardDescription: "",
+      awardIssuer:"",
       awardIssueDate: "",
     };
     const values = [...award, newData];
@@ -67,6 +68,17 @@ function Award() {
                 type="text"
                 name="awardDescription"
                 value={ele.awardDescription}
+                placeholder="Description"
+                className="p-2"
+                onChange={(event) => handleChange(event, index)}
+              />
+            </div>
+            <div className="flex flex-col w-2/3 my-2">
+              <label className="my-2 font-medium">Award Issuer</label>
+              <input
+                type="text"
+                name="awardIssuer"
+                value={ele.awardIssuer}
                 placeholder="Description"
                 className="p-2"
                 onChange={(event) => handleChange(event, index)}

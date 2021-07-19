@@ -7,6 +7,7 @@ import Experience from '../Form/Experience';
 import Skill from '../Form/Skill'
 import Project from '../Form/Project'
 import Award from '../Form/Award';
+import GenCompPdfPreviewer from '../generator/PdfPreview';
 
 
 function NestedRoutesIndex(){
@@ -21,7 +22,7 @@ function NestedRoutesIndex(){
             <Route path={`${path}/skills`} exact component={Skill} />
             <Route path={`${path}/projects`} exact component={Project}/>
             <Route path={`${path}/awards`} exact component={Award}/>
-            <Route path={`${path}/preview`} exact/>
+            <Route path={`${path}/preview`} exact component={GenCompPdfPreviewer}/>
         </Switch>
         </>
     )
