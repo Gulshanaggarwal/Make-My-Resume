@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Text,
-  Font,
-  Page,
-  View,
-  Image,
-  Document,
-  StyleSheet,
-  Link,
-} from "@react-pdf/renderer";
-import Template1Header from "./Header";
+import { Text, View, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   container: {
@@ -23,32 +13,34 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontWeight: "bold",
-    fontSize: "20px",
+    fontSize: "15px",
   },
   Line: {
     backgroundColor: "gray",
     height: "0.5px",
     width: "100%",
-    margin:"2px 0"
+    margin: "2px 0",
   },
   educationInstanceContainer: {
-    margin: "10px 0",
+    margin: "8px 0",
   },
 
   schoolWithDateWrapper: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    fontSize: "15px",
+    fontSize: "12px",
     margin: "10px 0",
   },
   dateWrapper: {
     display: "flex",
+    height: "12px",
     flexDirection: "row",
     justifyContent: "space-between",
-    fontSize: "10px",
+    alignItems: "center",
+    fontSize: "6px",
     backgroundColor: "black",
-    padding: "2px",
+    padding: "0 2px",
     color: "white",
   },
   dateText: {
@@ -56,9 +48,10 @@ const styles = StyleSheet.create({
   },
   schoolLocation: {
     fontSize: "10px",
+    margin: "2px 0",
   },
   degreeDetail: {
-    fontSize: "12px",
+    fontSize: "10px",
     display: "flex",
     flexDirection: "row",
   },
@@ -84,8 +77,9 @@ function Template1Education(props) {
               <View style={styles.schoolWithDateWrapper}>
                 <View>
                   <Text>{ele.schoolName}</Text>
+                  <Text style={styles.schoolLocation}>{ele.schoolCity}</Text>
                 </View>
-                {ele.sessionStart !== "" && (
+                {(ele.sessionStart !== "" || ele.sessionEnd!=="") && (
                   <View style={styles.dateWrapper}>
                     <Text style={styles.dateText}>{ele.sessionStart}</Text>
                     <Text style={styles.dateText}>-</Text>
@@ -93,14 +87,14 @@ function Template1Education(props) {
                   </View>
                 )}
               </View>
-              <View style={styles.schoolLocation}>
-                <Text>{ele.schoolCity}</Text>
-              </View>
-              <View style={styles.degreeDetail}>
-                <Text>{ele.degree}</Text>
-                <Text style={styles.degreeDetailText}>-</Text>
-                <Text style={styles.degreeDetailText}>{ele.major}</Text>
-              </View>
+
+              {(ele.degree !== "" || ele.major!=="") && (
+                <View style={styles.degreeDetail}>
+                  <Text>{ele.degree}</Text>
+                  <Text style={styles.degreeDetailText}>-</Text>
+                  <Text style={styles.degreeDetailText}>{ele.major}</Text>
+                </View>
+              )}
             </View>
           );
         })}

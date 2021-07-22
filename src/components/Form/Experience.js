@@ -131,13 +131,13 @@ function Experience() {
       })}
       <div className="my-4">
         <button className="p-2 bg-green-500 font-semibold" onClick={handleAdd}>
-          Add Job
+          Add Work
         </button>
         <button
           className="p-2 bg-red-500 mx-4 font-semibold"
           onClick={handleRemove}
         >
-          Remove Job
+          Remove Work
         </button>
       </div>
     </div>

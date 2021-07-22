@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, {useContext } from "react";
 import { DataContext } from "../Store/Provide";
 function Education() {
   const [state, dispatch] = useContext(DataContext);
@@ -132,13 +132,13 @@ function Education() {
             className="p-2 bg-green-500 font-semibold"
             onClick={handleAdd}
           >
-            Add Job
+            Add School
           </button>
           <button
             className="p-2 bg-red-500 mx-4 font-semibold"
             onClick={handleRemove}
           >
-            Remove Job
+            Remove School
           </button>
         </div>
       </form>

@@ -1,15 +1,5 @@
-import React, { useContext } from "react";
-import {
-  Text,
-  Font,
-  Page,
-  View,
-  Image,
-  Document,
-  StyleSheet,
-  Link,
-} from "@react-pdf/renderer";
-import { FaEnvelope, FaMobileAlt, FaLink } from "react-icons/fa";
+import React from "react";
+import { Text, View, StyleSheet, Link} from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   container: {
@@ -25,23 +15,26 @@ const styles = StyleSheet.create({
     width: "85%",
   },
   fullnameContainer: {
-    fontSize: "22px",
-    fontWeight: "heavy",
+    fontSize: "18px",
+    fontWeight: "extrabold"
   },
   addressContainer: {
     margin: "0 3px",
-    fontSize: "8px",
+    fontSize: "6px",
   },
   linkContainer: {
-    margin: "3px 0",
+    margin: "2px 0",
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end",
   },
 });
 
+
 function Template1Header(props) {
-  const { fullName, email, phone, linkedinUrl,address } = props.data.personal;
+  
+  const { fullName, email, phone, linkedinUrl, address } = props.data.personal;
+
 
   return (
     <View style={styles.container}>
@@ -51,22 +44,17 @@ function Template1Header(props) {
         </View>
         <View style={styles.addressContainer}>
           <View style={styles.linkContainer}>
-            <FaLink />
             <Text>{address}</Text>
           </View>
           <View style={styles.linkContainer}>
             <Link href={`tel:${phone}`}>{phone}</Link>
           </View>
           <View style={styles.linkContainer}>
-            <FaEnvelope style={styles.icon} />
             <Link href={`mailto:${email}`}>{email}</Link>
           </View>
 
           <View style={styles.linkContainer}>
-            <FaLink />
-            <Link href={linkedinUrl}>
-              {linkedinUrl}
-            </Link>
+            <Link href={linkedinUrl}>{linkedinUrl}</Link>
           </View>
         </View>
       </View>

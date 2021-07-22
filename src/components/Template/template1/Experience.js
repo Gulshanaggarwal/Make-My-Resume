@@ -1,13 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   Text,
-  Font,
-  Page,
   View,
-  Image,
-  Document,
-  StyleSheet,
-  Link,
+  StyleSheet
 } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
@@ -22,7 +17,7 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontWeight: "bold",
-    fontSize: "20px",
+    fontSize: "15px",
   },
   Line: {
     backgroundColor: "gray",
@@ -31,7 +26,7 @@ const styles = StyleSheet.create({
     margin:"2px 0"
   },
   instanceWrapper: {
-    margin: "15px 0",
+    margin: "8px 0",
   },
   companywithLocationWrapper: {
     display: "flex",
@@ -48,22 +43,23 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems:"center",
     padding: "0 2px",
-    alignItems: "center",
     color: "white",
-    fontSize: "10px",
+    fontSize: "6px",
     backgroundColor: "black",
   },
   jobResponsibility: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    fontSize: "12px",
+    fontSize: "8px",
     margin: "5px 0",
+    width:"80%"
   },
   listDot: {
-    width: "5px",
-    height: "5px",
+    width: "3px",
+    height: "3px",
     backgroundColor: "black",
     borderRadius: "50%",
   },
@@ -84,16 +80,16 @@ function Template1Experience(props) {
           return (
             <View style={styles.instanceWrapper} key={index}>
               <View style={styles.companywithLocationWrapper}>
-                <Text style={{ fontWeight: "medium", fontSize: "15px" }}>
+                <Text style={{ fontWeight: "medium", fontSize: "12px" }}>
                   {ele.companyName}
                 </Text>
-                <Text style={{ fontSize: "10px" }}>{ele.jobLocation}</Text>
+                <Text style={{ fontSize: "8px" }}>{ele.jobLocation}</Text>
               </View>
               <View style={styles.jobTitleWithDateWrapper}>
                 <View>
-                  <Text style={{ fontSize: "12px" }}>{ele.jobTitle}</Text>
+                  <Text style={{ fontSize: "10px" }}>{ele.jobTitle}</Text>
                 </View>
-                {ele.startDate !== "" && (
+                {(ele.startDate !== "" || ele.endDate!=="") && (
                   <View style={styles.jobPeriodWrapper}>
                     <Text style={{ margin: "0 2px" }}>{ele.startDate}</Text>
                     <Text style={{ margin: "0 2px" }}>-</Text>

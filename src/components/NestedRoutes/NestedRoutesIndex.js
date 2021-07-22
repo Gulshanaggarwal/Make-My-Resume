@@ -11,7 +11,7 @@ import GenCompPdfPreviewer from '../generator/PdfPreview';
 
 
 function NestedRoutesIndex(){
-    let { path, url } = useRouteMatch();
+    let { path} = useRouteMatch();
     return(
         <>
         <Switch>

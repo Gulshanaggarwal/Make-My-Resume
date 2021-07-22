@@ -1,14 +1,10 @@
 import React from "react";
 import {
   Text,
-  Font,
-  Page,
   View,
-  Image,
-  Document,
   StyleSheet,
-  Link,
 } from "@react-pdf/renderer";
+
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +18,7 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontWeight: "bold",
-    fontSize: "20px",
+    fontSize: "15px",
   },
   Line: {
     backgroundColor: "gray",
@@ -37,18 +33,19 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    fontSize: "12px",
+    fontSize: "10px",
     margin: "5px 0",
   },
   listDot: {
-    width: "5px",
-    height: "5px",
+    width: "3px",
+    height: "3px",
     backgroundColor: "black",
     borderRadius: "50%",
   },
 });
 
 function Template1Project(props) {
+  
   const { project } = props.data;
 
   return (
@@ -63,13 +60,13 @@ function Template1Project(props) {
         {project.map((ele, index) => {
           return (
             <View style={styles.instanceWrapper} key={index}>
-              <Text style={{ fontSize: "15px", fontWeight: "bold" }}>
+              <Text style={{ fontSize: "12px", fontWeight: "bold" }}>
                 {ele.projectName}
               </Text>
               {ele.projectDescription !== "" && (
                 <View style={styles.DescriptionWrapper}>
                   <View style={styles.listDot}></View>
-                  <Text style={{ margin: "0 5px" }}>
+                  <Text style={{margin:"0 5px"}}>
                     {ele.projectDescription}
                   </Text>
                 </View>

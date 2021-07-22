@@ -1,13 +1,8 @@
 import React from "react";
 import {
   Text,
-  Font,
-  Page,
   View,
-  Image,
-  Document,
-  StyleSheet,
-  Link,
+  StyleSheet
 } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
@@ -22,7 +17,7 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontWeight: "bold",
-    fontSize: "20px",
+    fontSize: "15px",
   },
   Line: {
     backgroundColor: "gray",
@@ -34,7 +29,6 @@ const styles = StyleSheet.create({
     margin: "5px 0",
   },
   awardNameWithIssuerWrapper: {
-    fontSize: "12px",
     margin: "3px 0",
     display: "flex",
     flexDirection: "row",
@@ -44,7 +38,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    fontSize: "10px",
+    fontSize: "8px",
   },
 });
 
@@ -63,8 +57,8 @@ function Template1Award(props) {
           return (
             <View style={styles.instanceWrapper} key={index}>
               <View style={styles.awardNameWithIssuerWrapper}>
-                <Text  style={{fontWeight:"bold"}}>{ele.awardName}</Text>
-                <Text>{ele.awardIssuer}</Text>
+                <Text  style={{fontWeight:"bold",fontSize:"10px"}}>{ele.awardName}</Text>
+                <Text style={{fontSize:"8px"}}>{ele.awardIssuer}</Text>
               </View>
               <View style={styles.awardDescriptWithDateWrapper}>
                 <Text>{ele.awardDescription}</Text>

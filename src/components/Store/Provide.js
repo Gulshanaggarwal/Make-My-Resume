@@ -39,18 +39,23 @@ let initialData = {
     {
       awardName: "",
       awardDescription: "",
-      awardIssuer:"",
+      awardIssuer: "",
       awardIssueDate: "",
     },
   ],
-  project:[
+  project: [
     {
-      projectName:"",
-      projectDescription:""
-
-    }
-  ]
+      projectName: "",
+      projectDescription: "",
+    },
+  ],
 };
+
+function reusableReturnfunction() {
+  return {
+    details: JSON.parse(window.localStorage.getItem("makeMyResume")),
+  };
+}
 
 let getLocalData = JSON.parse(window.localStorage.getItem("makeMyResume"));
 
@@ -67,50 +72,42 @@ const reducer = (state, action) => {
         "makeMyResume",
         JSON.stringify({ ...state.details, personal: action.payload })
       );
-      return {
-        details: JSON.parse(window.localStorage.getItem("makeMyResume")),
-      };
-     
+      return reusableReturnfunction();
+
     case "handleEducation":
       window.localStorage.setItem(
         "makeMyResume",
         JSON.stringify({ ...state.details, education: action.payload })
       );
-      return {
-        details: JSON.parse(window.localStorage.getItem("makeMyResume")),
-      };
+      return reusableReturnfunction();
     case "handleExperience":
       window.localStorage.setItem(
         "makeMyResume",
         JSON.stringify({ ...state.details, experience: action.payload })
       );
-      return {
-        details: JSON.parse(window.localStorage.getItem("makeMyResume")),
-      };
+      return reusableReturnfunction();
     case "handleSkill":
       window.localStorage.setItem(
         "makeMyResume",
         JSON.stringify({ ...state.details, skill: action.payload })
       );
-      return {
-        details: JSON.parse(window.localStorage.getItem("makeMyResume")),
-      };
+      return reusableReturnfunction();
     case "handleAward":
       window.localStorage.setItem(
         "makeMyResume",
         JSON.stringify({ ...state.details, award: action.payload })
       );
-      return {
-        details: JSON.parse(window.localStorage.getItem("makeMyResume")),
-      };
-      case "handleProject":
+      return reusableReturnfunction();
+    case "handleProject":
       window.localStorage.setItem(
         "makeMyResume",
         JSON.stringify({ ...state.details, project: action.payload })
       );
-      return {
-        details: JSON.parse(window.localStorage.getItem("makeMyResume")),
-      };
+      return reusableReturnfunction();
+
+    case "handleCreate":
+      window.localStorage.setItem("makeMyResume", JSON.stringify(initialData));
+      return reusableReturnfunction();
     default:
       throw new Error();
   }

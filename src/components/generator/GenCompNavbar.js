@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import PdfIndex from "../PdfComp/PdfIndex";
-import { DataContext } from "../Store/Provide";
+
 function GenCompNavbar() {
-  let { path, url } = useRouteMatch();
-  const [state,dispatch]=useContext(DataContext);
+  let {url } = useRouteMatch();
+
+ 
 
   return (
     <div className="bg-red-700 border-r-2 border-gray-400">
-      <ul className="flex flex-col m-5">
+      <ul className="flex flex-col m-5 text-gray-200 font-extrabold">
         <li className="mx-2 my-3">
           <Link to={`${url}/template`}>Template</Link>{" "}
         </li>
@@ -35,11 +34,6 @@ function GenCompNavbar() {
           <Link to={`${url}/preview`}>Preview</Link>{" "}
         </li>
       </ul>
-      <PDFDownloadLink document={<PdfIndex data={state.details}/>} fileName="somename.pdf">
-        {({ blob, url, loading, error }) =>
-          loading ? "Loading document..." : "Download now!"
-        }
-      </PDFDownloadLink>
     </div>
   );
 }

@@ -4,9 +4,7 @@ import GeneratorPage from "./components/generator/GeneratorPage";
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
   Route,
-  useParams,
 } from "react-router-dom";
 import ProviderComp from "./components/Store/Provide";
 

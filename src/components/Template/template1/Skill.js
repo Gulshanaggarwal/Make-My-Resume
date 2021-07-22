@@ -1,14 +1,10 @@
 import React from "react";
 import {
   Text,
-  Font,
-  Page,
   View,
-  Image,
-  Document,
   StyleSheet,
-  Link,
 } from "@react-pdf/renderer";
+
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +18,7 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontWeight: "bold",
-    fontSize: "20px",
+    fontSize: "15px",
   },
   Line: {
     backgroundColor: "gray",
@@ -34,7 +30,7 @@ const styles = StyleSheet.create({
       display:"flex",
       flexDirection:"row",
       flexWrap:'wrap',
-      width:"90%",
+      width:"80%",
       margin:"10px 0"
   }
   ,
@@ -44,12 +40,12 @@ const styles = StyleSheet.create({
       padding:"4px 6px",
       margin:"5px 5px",
       color:"white",
-      fontSize:"12px"
+      fontSize:"8px"
   }
 });
 
 function Template1Skill(props) {
-
+  
     const {skill}=props.data;
   return (
     <View style={styles.container}>
@@ -63,9 +59,9 @@ function Template1Skill(props) {
         <View style={styles.skillWrapper}>
             {skill.map((ele,index)=>{
                 return(
-                   <>
-                   {ele.skillName!=="" && <Text style={styles.skillBox} key={index}>{ele.skillName}</Text>}
-                   </>
+                   <View key={index}>
+                   {ele.skillName!=="" && <Text style={styles.skillBox}>{ele.skillName}</Text>}
+                   </View>
                 )
             })}
         </View>
