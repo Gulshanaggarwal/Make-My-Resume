@@ -2,7 +2,7 @@ import { useReducer, createContext } from "react";
 
 export const DataContext = createContext();
 
-let initialData = {
+ export const initialData = {
   personal: {
     fullName: "",
     email: "",
@@ -106,7 +106,7 @@ const reducer = (state, action) => {
       return reusableReturnfunction();
 
     case "handleCreate":
-      window.localStorage.setItem("makeMyResume", JSON.stringify(initialData));
+      window.localStorage.setItem("makeMyResume", JSON.stringify(action.payload));
       return reusableReturnfunction();
     default:
       throw new Error();

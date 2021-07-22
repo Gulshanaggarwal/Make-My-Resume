@@ -40,7 +40,7 @@ function Award() {
       values.splice(award.length - 1, 1);
       reusableDispatchFunction(values);
     } else {
-      alert("Invalid Operation");
+      alert("Cannot Remove!!");
     }
   }
 
@@ -99,11 +99,12 @@ function Award() {
         );
       })}
       <div className="my-4">
-        <button className="p-2 bg-green-500 font-semibold" onClick={handleAdd}>
+        <button className="p-2 bg-green-500 font-semibold" type="button" onClick={handleAdd}>
           Add Award
         </button>
         <button
           className="p-2 bg-red-500 mx-4 font-semibold"
+          type="button"
           onClick={handleRemove}
         >
           Remove Award

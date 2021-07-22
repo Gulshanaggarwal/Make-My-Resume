@@ -46,7 +46,7 @@ function Education() {
       values.splice(education.length - 1, 1);
       reusableDispatchFunction(values);
     } else {
-      alert("can't remove");
+      alert("Cannot Remove!!");
     }
   }
 
@@ -131,12 +131,14 @@ function Education() {
           <button
             className="p-2 bg-green-500 font-semibold"
             onClick={handleAdd}
+            type="button"
           >
             Add School
           </button>
           <button
             className="p-2 bg-red-500 mx-4 font-semibold"
             onClick={handleRemove}
+            type="button"
           >
             Remove School
           </button>

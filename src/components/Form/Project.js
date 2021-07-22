@@ -38,7 +38,7 @@ function Project() {
       values.splice(project.length - 1, 1);
       reusableDispatchFunction(values);
     } else {
-      alert("Invalid Operation");
+      alert("Cannot Remove!!");
     }
   }
   return (
@@ -74,11 +74,12 @@ function Project() {
         );
       })}
       <div className="my-4">
-        <button className="p-2 bg-green-500 font-semibold" onClick={handleAdd}>
+        <button className="p-2 bg-green-500 font-semibold" type="button" onClick={handleAdd}>
           Add Project
         </button>
         <button
           className="p-2 bg-red-500 mx-4 font-semibold"
+          type="button"
           onClick={handleRemove}
         >
           Remove Project
