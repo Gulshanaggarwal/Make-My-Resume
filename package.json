@@ -1,5 +1,4 @@
 {
-  "homepage": "https://github.com/Gulshanaggarwal/MakeMyResume.git",
   "name": "make_my_resume",
   "version": "0.1.0",
   "private": true,
@@ -16,8 +15,6 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
