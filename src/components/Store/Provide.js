@@ -2,7 +2,7 @@ import { useReducer, createContext } from "react";
 
 export const DataContext = createContext();
 
-const initialData = {
+export const initialData = {
   personal: {
     fullName: "",
     email: "",

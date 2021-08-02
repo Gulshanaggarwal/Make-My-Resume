@@ -1,57 +1,9 @@
 import React, { useContext ,useState} from 'react'
 import {Link,Redirect} from 'react-router-dom';
-import { DataContext } from '../Store/Provide';
+import { DataContext ,initialData} from '../Store/Provide';
 function HomePage(){
 
     const [state,dispatch]=useContext(DataContext);
-    const initialData = {
-        personal: {
-          fullName: "",
-          email: "",
-          phone: "",
-          address: "",
-          linkedinUrl: "",
-        },
-        education: [
-          {
-            schoolName: "",
-            schoolCity: "",
-            degree: "",
-            major: "",
-            sessionStart: "",
-            sessionEnd: "",
-          },
-        ],
-        experience: [
-          {
-            companyName: "",
-            jobTitle: "",
-            jobLocation: "",
-            startDate: "",
-            endDate: "",
-            jobResponsibility: "",
-          },
-        ],
-        skill: [
-          {
-            skillName: "",
-          },
-        ],
-        award: [
-          {
-            awardName: "",
-            awardDescription: "",
-            awardIssuer: "",
-            awardIssueDate: "",
-          },
-        ],
-        project: [
-          {
-            projectName: "",
-            projectDescription: "",
-          },
-        ],
-      };
 
     const [redirect,setRedirect]=useState(null);
 
