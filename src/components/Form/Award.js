@@ -1,6 +1,6 @@
 
 import React,{useContext} from "react";
-import { DataContext } from "../Store/Provide";
+import { DataContext } from "../../Store/Provide";
 
 function Award() {
   const [state, dispatch] = useContext(DataContext);

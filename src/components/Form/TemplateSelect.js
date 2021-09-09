@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultTemplate from "../Images/Template.png";
+import DefaultTemplate from "../../Images/Template.png";
 
 function TemplateSelect() {
   return (

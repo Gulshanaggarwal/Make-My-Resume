@@ -1,6 +1,6 @@
 import React, { useContext ,useState} from 'react'
 import {Link,Redirect} from 'react-router-dom';
-import { DataContext ,initialData} from '../Store/Provide';
+import { DataContext ,initialData} from '../../Store/Provide';
 function HomePage(){
 
     const [state,dispatch]=useContext(DataContext);

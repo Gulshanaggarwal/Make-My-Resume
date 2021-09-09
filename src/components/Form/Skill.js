@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { DataContext } from "../Store/Provide";
-
+import { DataContext } from "../../Store/Provide";
 function Skill() {
   const [state, dispatch] = useContext(DataContext);
   const {skill}=state.details;

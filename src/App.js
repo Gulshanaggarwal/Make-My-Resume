@@ -6,7 +6,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import ProviderComp from "./components/Store/Provide";
+import ProviderComp from "./Store/Provide";
 
 function App() {
   return (

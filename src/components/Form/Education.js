@@ -1,5 +1,5 @@
 import React, {useContext } from "react";
-import { DataContext } from "../Store/Provide";
+import { DataContext } from "../../Store/Provide";
 function Education() {
   const [state, dispatch] = useContext(DataContext);
   const { education } = state.details;

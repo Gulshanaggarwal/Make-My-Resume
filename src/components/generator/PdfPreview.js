@@ -1,7 +1,7 @@
 import { PDFViewer } from "@react-pdf/renderer";
 import React,{useContext} from "react";
 import PdfIndex from "../PdfComp/PdfIndex";
-import { DataContext } from "../Store/Provide";
+import { DataContext } from "../../Store/Provide";
 
 function GenCompPdfPreviewer() {
 

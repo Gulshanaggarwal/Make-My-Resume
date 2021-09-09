@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import GenCompHeader from "./GenCompHeader";
 import GenCompNavbar from "./GenCompNavbar";
 import NestedRoutesIndex from "../NestedRoutes/NestedRoutesIndex";
-import { DataContext } from "../Store/Provide";
+import { DataContext } from "../../Store/Provide";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PdfIndex from "../PdfComp/PdfIndex";
 
